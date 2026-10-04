@@ -13,3 +13,11 @@
 - Variable and Constant Usage
 - Type Casting (Implicit & Explicit)
 - Type Conversion & User Input
+
+
+## Day 2 - 04/10/2026
+- Nullable Types & Null Coalescing
+- Value Types vs Reference Types (Stack vs Heap)
+- All Operators (Arithmetic, Assignment, Bitwise, Comparison, Logical)
+- Boolean Data Type
+- Conditional Structures
