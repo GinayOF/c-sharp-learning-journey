@@ -1,12 +1,5 @@
 # Day 1
-## What is C#
-C# runs on the .NET platform
-It is an object-oriented (OOP) language
-It took its basic programming logic and syntax from C
-It took its object-oriented programming logic from C++
-It took its virtual machine, garbage collection, exception handling, and class-based design from Java
 ## Escape Characters
-
 | Expression | Meaning         |
 | ---------- | --------------- |
 | `\n`       | New line        |
@@ -25,7 +18,6 @@ It took its virtual machine, garbage collection, exception handling, and class-b
 `//` - Single-line comment
 `/* */`  - Block comment
 ## Variables
-
 | **Type**    | **Bits**  | **Value Range**                            | **Description / Usage**           |
 | ----------- | --------- | ------------------------------------------ | --------------------------------- |
 | **bool**    | 8         | `true` / `false`                           | Logical value                     |
@@ -40,8 +32,9 @@ It took its virtual machine, garbage collection, exception handling, and class-b
 | **float**   | 32        | $\pm 1.5\text{E}-45 - \pm 3.4\text{E}38$   | Floating-point (low precision)    |
 | **double**  | 64        | $\pm 5.0\text{E}-324 - \pm 1.7\text{E}308$ | Floating-point (high precision)   |
 | **decimal** | 128       | $\pm 1.0\text{E}-28 - \pm 7.9\text{E}28$   | Money / finance                   |
-| **char**    | 16        | `'\u0000'` – `'\uFFFF'`                    | Single Unicode character          |
+| **char**    | 16        | `'\u0000'` – `'\uFFFF'`                    | UTF-16 code unit.                 |
 | **string**  | variable  |                                            | Text                              |
+
 A float value must end with f
 A decimal value must end with m
 ### Constant Variable
@@ -57,12 +50,9 @@ PascalCase = all words start with an uppercase letter
 _camelCase = starts with an underscore, the rest is camelCase
 ## Type Casting
 ### Implicit Type Conversion
-Converting a smaller data type to a larger data type
-Since there is no risk of data loss, it is done automatically
+The compiler can perform the conversion automatically.
 ### Explicit Type Conversion
-Converting a larger data type to a smaller data type
-Since there is a risk of data loss, it is done manually
-
+The programmer must explicitly request the conversion, usually because the conversion may lose information ormay require a runtime check.
 | Convert Method       | Target Data Type | Description                                   |
 | :------------------- | :--------------- | :-------------------------------------------- |
 | `Convert.ToInt16`    | `short`          | 16-bit signed integer                         |
@@ -124,8 +114,8 @@ The variable itself stays on the stack, but it holds the address of the data in 
 The actual data is stored in a memory region called the heap
 Copy behavior: When a variable is assigned to another variable, the value is not copied; the address (reference) in the heap is copied 
 Both variables point to the same object in the heap; a change made in one also affects the other (string is not included in this behavior)
-# Operators 
-## Arithmetic
+## Operators 
+### Arithmetic
 `+ - * / % ++ --`
 
 ``` C#
@@ -136,21 +126,21 @@ Console.WriteLine(x); // Output 8
 Console.WriteLine(y++); // Output 7
 Console.WriteLine(y); // Output 8
 ```
-## Assignment
-### Normal
-`== += -= *= /= %= `
-### Bitwise 
+### Assignment
+#### Normal
+`= += -= *= /= %= `
+#### Bitwise 
 `^= &= |= <<= >>=`
-## Comparison
+### Comparison
 `== != > < >= <= `
-## Logical
+### Logical
 `&& || !`
 Order of precedence 
 1) ! 
 2) && 
 3) ||
 
-# Conditions
+## Conditions
 if,
 else,
 else if,
@@ -161,3 +151,78 @@ switch
 int age = 28;
 string result = (age >= 18) ? "Adult":"Underage";
 ```
+# Day 3
+## Switch Statement
+``` C#
+switch (expression)
+{
+	case value1:
+	// code
+	break;
+	
+	case value2:
+	// code
+	break;
+	
+	default:
+	// code
+	break;
+}
+```
+
+``` C#
+int a = 1;  
+  
+string b = a switch  
+{  
+	1 => "One",   
+	2 => "Two",   
+	3 => "Three",  
+	_ => "Default"
+};
+```
+## String and RAM
+``` C#
+string word = "apple";
+word = "banana";
+```
+Because string is immutable, the contents of an existing string object cannot be changed. When we write word = "banana", word now references the "banana" string. If the "apple" string is no longer in use and cannot be reached through any other reference, it can be collected by the garbage collector.
+## String Methods
+string.IsNullOrWhiteSpace(variable); - Returns true if the variable contains no data, is whitespace, or is null
+
+stringName.Length - Returns the length of the given string
+
+stringName.ToUpper()
+stringName.ToLower()
+
+stringName.Trim() - Removes the whitespace at the beginning and end of the string
+stringName.Trim('x','y') - Removes any x or y characters at the beginning and end of the string
+stringName.TrimStart() - Only the whitespace at the beginning
+stringName.TrimEnd() - Only the whitespace at the end
+
+stringName.Contains("x") - Returns true if the word x is in the string
+stringName.Contains('x') - Returns true if the character x is in the string
+word.Contains("x",StringComparison.OrdinalIgnoreCase) - Checks without distinguishing between uppercase and lowercase
+
+stringName.StartsWith("x") - Returns true if the string starts with the word x.
+stringName.EndsWith("x") - Returns true if the string ends with the word x.
+
+stringName.Replace("x","y") - Replaces x with y within the string
+
+stringName[x] - Lets you access the character at index x in the string
+
+## StringBuilder
+Strings are immutable, so making many changes to a string creates a new string every time, which takes up unnecessary space in RAM.
+
+StringBuilder is mutable.
+
+``` C#
+using System.Text;  
+StringBuilder variableName = new StringBuilder();  
+variableName.Append("I ");  
+variableName.Append("Love ");  
+variableName.Append("Myself!");  
+Console.WriteLine(variableName.ToString());
+```
+In the example code above, I created an empty mutable string and added words to it one by one. This approach performs better because a new string is not created after each change.
+
