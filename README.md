@@ -31,3 +31,10 @@ A living repository of my self-taught C# journey. I am learning C# independently
 - String Comparisons
 - Core String Methods
 - StringBuilder & String Memory Management
+
+## Day 4 - 13/10/2026
+- Structs & DateTime
+- Enums
+- Math Class
+- Loops
+- Arrays & Built-in Methods
