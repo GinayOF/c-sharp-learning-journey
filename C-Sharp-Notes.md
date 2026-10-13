@@ -225,4 +225,98 @@ variableName.Append("Myself!");
 Console.WriteLine(variableName.ToString());
 ```
 In the example code above, I created an empty mutable string and added words to it one by one. This approach performs better because a new string is not created after each change.
+# Day 4
+## Struct 
+``` C#
+structName structVariableName;
+structVariableName.x = a;
+structVariableName.y = bf;
+structVariableName.z = "c";
+
+
+struct structName  
+{  
+    public int x;  
+    public float y;  
+    public string z;  
+  
+}
+```
+Struct is a Value type
+Structs cannot inherit from other types, and no other struct can inherit from them
+### DateTime Struct
+``` C# 
+DateTime variableName = DateTime.Now;
+DateTime variableName = DateTime.UtcNow;
+```
+
+## Enumeration
+It is a Value type.
+``` C#
+StudentStatus John = StudentStatus.Active;  
+StudentStatus Angelica = StudentStatus.Passive;  
+StudentStatus Max = StudentStatus.Graduated;  
+John = StudentStatus.Graduated;  
+
+enum StudentStatus  
+{  
+    Active,  
+    Passive,  
+    Graduated  
+}
+```
+
+## Math Class
+``` C#
+Math.PI  
+Math.E  
+Math.Pow(2,3)  
+Math.Abs(-7)  
+Math.Sqrt(16)  
+Math.Max(19,70)  
+Math.Min(3,20)  
+Math.Round(47.5,MidpointRounding.AwayFromZero)  
+Math.Round(47.5778,3,MidpointRounding.AwayFromZero)  
+Math.Floor(53.98)  
+Math.Ceiling(53.11)  
+Math.Cos/Cosh/Acos/Acosh  
+Math.Log2(64)  
+Math.Sign(-8)
+Math.Log2(100);
+```
+
+## Loops
+### While
+### Do While
+### For
+
+### Foreach
+```C# 
+string[] animes = { "Naruto", "One Piece", "Bleach", "Hunter x Hunter" };  
+  
+foreach (string i in animes)  
+{  
+    Console.WriteLine(i);  
+}
+```
+
+## Arrays
+### Methods
+``` C#
+string[] fruits = {"apple", "orange", "banana", "grape"};  
+fruits.SetValue("pineapple",0);  
+fruits.GetValue(0);  
+Array.Sort(fruits);  
+Array.Reverse(fruits);  
+Array.IndexOf(fruits,"grape");  
+Array.LastIndexOf(fruits,"banana");  
+Array.Clear(fruits);  
+Array.Exists(fruits,fruit=>fruit=="banana");  
+```
+### Multidimensional Arrays
+``` C#
+int[,] numbers = {{1,2,3},{2,3,4}};
+int[,] number = new int[2,5];
+```
+
 
