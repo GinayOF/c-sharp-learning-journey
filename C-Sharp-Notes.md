@@ -318,5 +318,25 @@ Array.Exists(fruits,fruit=>fruit=="banana");
 int[,] numbers = {{1,2,3},{2,3,4}};
 int[,] number = new int[2,5];
 ```
-
+# Day 5
+## List
+```C#
+List<int> numbers = new List<int>();  
+number.Add(1);  
+number.Add(2);  
+number.Add(3);  
+number.Add(4);
+```
+## Methods
+## OOP
+### Class
+#### Constructor
+#### Access Modifiers
+- public
+- private
+- protected
+- internal
+- protected internal
+- private protected
+### Namespace
 
