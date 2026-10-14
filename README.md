@@ -38,3 +38,9 @@ A living repository of my self-taught C# journey. I am learning C# independently
 - Math Class
 - Loops
 - Arrays & Built-in Methods
+
+## Day 5 - 14/10/2026
+- Lists
+- Methods & Function Structure
+- OOP Fundamentals (Classes, Constructors, Namespaces)
+- Access Modifiers
